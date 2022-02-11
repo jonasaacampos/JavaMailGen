@@ -23,8 +23,7 @@ public class Email {
     public Email(String nome, String sobrenome) {
         this.nome = nome;
         this.sobrenome = sobrenome;
-        System.out.println("Novo funcionário: " + this.nome +
-                " " + this.sobrenome);
+        System.out.println("Novo funcionário: " + this.nome + " " + this.sobrenome);
 
         this.departamento = this.setDepartamento();
         this.password = this.generatePassword(10);
@@ -34,16 +33,14 @@ public class Email {
 
     //gerador de email
     private String generateEmail() {
-        return this.nome.toLowerCase() + "." +
-                this.sobrenome.toLowerCase() + "@" +
-                this.departamento.toLowerCase() + "xpto.com";
+        return this.nome.toLowerCase() + "." + this.sobrenome.toLowerCase() + "@" + this.departamento.toLowerCase() + "xpto.com";
     }
 
 
     private String setDepartamento() {
 
         System.out.println("Código dos departamentos: ");
-        System.out.println("1 - Comercial \n2 - Suporte\n3 - Financeiro\n0 - Nenhum");
+        System.out.println("1 - Comercial \n2 - Suporte\n3 - Financeiro\n0 - CHEFIA \uD83D\uDE1C\uD83D\uDE1C");
 
         boolean flag = false;
 
@@ -78,8 +75,7 @@ public class Email {
         StringBuilder password = new StringBuilder();
 
         for (int possibilidade = 0; possibilidade < tamanhoSenha; possibilidade++) {
-            password.append(todasAsPossibilidades
-                    .charAt(random.nextInt(todasAsPossibilidades.length())));
+            password.append(todasAsPossibilidades.charAt(random.nextInt(todasAsPossibilidades.length())));
         }
         return password.toString();
     }
@@ -138,5 +134,37 @@ public class Email {
         System.out.println("Password: " + this.password);
         System.out.println("Capacidade da caixa de entrada: " + this.capacidadeCaixaEmailMb + "Mb");
         System.out.println("Email alternativo: " + this.emailSecundario);
+    }
+
+    public void storeFile() {
+        try {
+            FileWriter in = new FileWriter("C:\\MailLog\\info.txt");
+            in.write("Nome: " + this.nome + " " + this.sobrenome);
+            in.append("Departament: " + this.departamento);
+            in.append("Email: " + this.email);
+            in.append("Password: " + this.password);
+            in.append("Capacidade da caixa de entrada: " + this.capacidadeCaixaEmailMb + "Mb");
+            in.append("Email alternativo: " + this.emailSecundario);
+            in.close();
+
+            System.out.println("Arquivo salvo com sucesso!");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public void readFile() {
+        try {
+            FileReader f1 = new FileReader("C:\\MailLog\\info.txt");
+            int i;
+            while ((i = f1.read()) != -1) {
+                System.out.println((char) i);
+            }
+            System.out.println();
+            f1.close();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 }

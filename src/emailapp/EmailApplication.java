@@ -40,9 +40,17 @@ public class EmailApplication {
                 case 4:
                     mail1.emailAlternativo();
                     break;
+                case 5:
+                    mail1.storeFile();
+                    break;
+                case 6:
+                    mail1.readFile();
+                    break;
                 case 7:
                     System.out.println("Obrigado por utilizar nossos sistemas");
                     break;
+                default:
+                    System.out.println("Opção inválida.\nInsira sua opção novamente");
             }
 
 
