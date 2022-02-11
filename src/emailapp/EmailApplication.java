@@ -7,10 +7,10 @@ public class EmailApplication {
 
         Scanner entrada = new Scanner(System.in);
 
-        System.out.println("Insira seu primeiro nome: ");
+        System.out.print("Insira seu primeiro nome: ");
         String nome = entrada.next();
 
-        System.out.println("Insira seu sobrenome: ");
+        System.out.print("Insira seu sobrenome: ");
         String sobrenome = entrada.next();
 
 
@@ -18,13 +18,13 @@ public class EmailApplication {
         int escolhaOpcaoUsuario = -1;
         do {
             System.out.println("Digite sua opção: ");
-            System.out.println("1. Mostra aplicação" +
-                    "\n 2. Alterar senha" +
-                    "\n 3. Alterar capacidade da caixa de entrada" +
-                    "\n 4. Inserir email secundário" +
-                    "\n 5. Exportar informações para um arquivo de texto" +
-                    "\n 6. Mostrar arquivo" +
-                    "\n 7. Sair");
+            System.out.println("1. Exibir dados" +
+                    "\n2. Alterar senha" +
+                    "\n3. Alterar capacidade da caixa de entrada" +
+                    "\n4. Inserir email secundário" +
+                    "\n5. Exportar informações para um arquivo de texto" +
+                    "\n6. Mostrar arquivo" +
+                    "\n7. Sair");
             escolhaOpcaoUsuario = entrada.nextInt();
 
             switch (escolhaOpcaoUsuario) {
